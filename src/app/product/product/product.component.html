@@ -1,0 +1,37 @@
+<div class="container">
+  <mat-toolbar color="primary">
+    <span>Products</span>
+    <span class="example-spacer"></span>
+    <button
+      mat-icon-button
+      class="example-icon favorite-icon"
+      aria-label="Example icon-button with heart icon"
+    >
+      <mat-icon>add_shopping_cart</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <div class="product-list">
+    <ng-container *ngFor="let product of products">
+      <mat-card class="example-card">
+        <img class="product-image" mat-card-image src="{{ product.img }}" />
+        <mat-card-content>
+          <p class="product-description" matTooltip="{{ product.description }}">
+            {{ product.description }}
+          </p>
+          <div class="product-price-rating">
+            <h3 class="product-price">
+              {{ product.price | currency : "INR" : "symbol" : "3.0" }}
+            </h3>
+            <ngx-star-rating
+              [(ngModel)]="product.selectedRating"
+              [disabled]="true"
+              class="custom-star"
+            ></ngx-star-rating>
+          </div>
+        </mat-card-content>
+        <button mat-button class="cart-button">Add to Cart</button>
+      </mat-card>
+    </ng-container>
+  </div>
+</div>
