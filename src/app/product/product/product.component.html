@@ -11,9 +11,8 @@
     </button>
   </mat-toolbar>
 
-  <div class="product-list">
-    <ng-container *ngFor="let product of products">
-      <mat-card class="example-card">
+  <div class="product-list-row">
+      <mat-card class="example-card" *ngFor="let product of products">
         <img class="product-image" mat-card-image src="{{ product.img }}" />
         <mat-card-content>
           <p class="product-description" matTooltip="{{ product.description }}">
@@ -32,6 +31,5 @@
         </mat-card-content>
         <button mat-button class="cart-button">Add to Cart</button>
       </mat-card>
-    </ng-container>
   </div>
 </div>
