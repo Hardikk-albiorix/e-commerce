@@ -17,12 +17,11 @@ export class CartComponent implements OnInit {
     this.getCartProduct();
   }
 
-  getCartProduct(){
-    this.productCart = this.cartService.getCartProducts();
-    return this.productCart
+  getCartProduct() {
+    this.productCart = this.cartService.getCartProducts;
   }
 
-  removeProduct(i:number){
+  removeProduct(i: number) {
     this.cartService.removeCartProduct(i);
     this.getCartProduct();
   }
