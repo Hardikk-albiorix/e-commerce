@@ -12,3 +12,7 @@ input.star ~ label.star {
   font-size: 20px;
   padding: 2px;
 }
+
+input.star:checked ~ label.star:before {
+  color: #776bd6ed !important;
+}
