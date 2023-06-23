@@ -6,6 +6,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTableModule } from '@angular/material/table';
+import { MatBadgeModule } from '@angular/material/badge';
 import { NgxStarRatingModule } from 'ngx-star-rating';
 
 @NgModule({
@@ -19,6 +20,7 @@ import { NgxStarRatingModule } from 'ngx-star-rating';
     MatTooltipModule,
     NgxStarRatingModule,
     MatTableModule,
+    MatBadgeModule,
   ],
   exports: [
     MatIconModule,
@@ -28,6 +30,7 @@ import { NgxStarRatingModule } from 'ngx-star-rating';
     MatTooltipModule,
     NgxStarRatingModule,
     MatTableModule,
+    MatBadgeModule,
   ],
 })
 export class MaterialModule {}
