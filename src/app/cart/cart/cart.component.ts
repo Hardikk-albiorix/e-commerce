@@ -21,19 +21,8 @@ export class CartComponent implements OnInit {
     this.productCart = productCart.filter((item) => item.quantity > 0);
   }
 
-  incrementQuantity(product: Product) {
-    product.quantity += 1;
-    const products = this.productService.getProducts();
-    products.forEach((item) => {
-      if (item.id == product.id) {
-        item.quantity = product.quantity;
-      }
-    });
-    this.productService.saveProducts(products);
-  }
-
-  decrementQuantity(product: Product) {
-    product.quantity -= 1;
+  productCounter(product: Product, isIncrease: boolean) {
+    isIncrease ? (product.quantity += 1) : (product.quantity -= 1);
     const products = this.productService.getProducts();
     products.forEach((item) => {
       if (item.id == product.id) {

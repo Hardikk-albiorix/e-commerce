@@ -22,16 +22,18 @@
         <button
           mat-button
           class="cart-button"
-          (click)="addToCart(product)"
+          (click)="addToCart(product, true)"
           *ngIf="product.quantity == 0"
         >
           Add to Cart
         </button>
         <div *ngIf="product.quantity > 0">
           <span class="product-count">
-            <mat-icon (click)="addToCart(product)">add_circle</mat-icon>
+            <mat-icon (click)="addToCart(product, true)">add_circle</mat-icon>
             <span class="product-quantity">{{ product.quantity }}</span>
-            <mat-icon (click)="removeFromCart(product)">remove_circle</mat-icon>
+            <mat-icon (click)="addToCart(product, false)"
+              >remove_circle</mat-icon
+            >
           </span>
         </div>
       </mat-card-content>
