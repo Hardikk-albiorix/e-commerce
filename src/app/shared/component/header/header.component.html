@@ -5,7 +5,15 @@
     mat-icon-button
     class="example-icon favorite-icon"
     aria-label="Example icon-button with heart icon"
+    routerLink="/cart"
   >
-    <mat-icon>add_shopping_cart</mat-icon>
+    <mat-icon
+      matBadge="{{ cartLength }}"
+      matBadgePosition="after"
+      [matBadgeHidden]="!cartLength"
+      matBadgeColor="warn"
+      matBadgeSize="medium"
+      >add_shopping_cart</mat-icon
+    >
   </button>
 </mat-toolbar>

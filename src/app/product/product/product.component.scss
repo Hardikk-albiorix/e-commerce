@@ -38,8 +38,28 @@
       }
     }
     .cart-button {
+      width: 100%;
       background-color: rgb(99 56 176);
       color: #fff;
+    }
+    .product-count {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 50%;
+      margin: 5px auto;
+      .mat-icon {
+        color: #1928a9e3;
+        height: 28px;
+        width: 28px;
+      }
+      .material-icons {
+        font-size: 30px;
+      }
+      .product-quantity{
+        font-size: 20px;
+        font-weight: 500;
+      }
     }
   }
 }
