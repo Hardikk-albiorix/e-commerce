@@ -8,7 +8,7 @@ import { Product } from '../interfaces/product';
   styleUrls: ['./product.component.scss'],
 })
 export class ProductComponent implements OnInit {
-  products: any = [];
+  products: Product[] = [];
 
   constructor(private productService: ProductService) {}
 
@@ -21,9 +21,13 @@ export class ProductComponent implements OnInit {
   }
 
   getProducts() {
-    this.productService.getProducts().subscribe((data: any[]) => {
+    this.productService.getProducts().subscribe((data: Product[]) => {
       this.products = data;
+      this.products.forEach((item: Product) => {
+        item.rating.rate = Math.floor(item.rating.rate);
+      });
     });
+    console.log(this.products);
     this.productService.saveProducts(this.products);
   }
 

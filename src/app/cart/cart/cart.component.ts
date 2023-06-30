@@ -18,19 +18,19 @@ export class CartComponent implements OnInit {
 
   getCartProducts() {
     const Products = this.productService.getProductsData();
-    this.productCart = Products.filter((item: any) => item.quantity > 0);
+    this.productCart = Products.filter((item: Product) => item.quantity > 0);
   }
 
   productCounter(product: Product, isIncrease: boolean) {
     isIncrease ? (product.quantity += 1) : (product.quantity -= 1);
     const Products = this.productService.getProductsData();
-    Products.forEach((item: any) => {
+    Products.forEach((item: Product) => {
       if (item.id == product.id) {
         item.quantity = product.quantity;
       }
     });
     this.productService.saveProducts(Products);
-    this.productCart = Products.filter((item: any) => item.quantity > 0);
+    this.productCart = Products.filter((item: Product) => item.quantity > 0);
     if (product.quantity == 0) {
       this.productService.getCartLength();
     }
@@ -38,13 +38,13 @@ export class CartComponent implements OnInit {
 
   removeFromCart(product: Product) {
     const Products = this.productService.getProductsData();
-    Products.forEach((item: any) => {
+    Products.forEach((item: Product) => {
       if (item.id == product.id) {
         item.quantity = 0;
       }
     });
     this.productService.saveProducts(Products);
-    this.productCart = Products.filter((item: any) => item.quantity > 0);
+    this.productCart = Products.filter((item: Product) => item.quantity > 0);
     this.productService.getCartLength();
   }
 }

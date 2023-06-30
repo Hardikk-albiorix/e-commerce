@@ -11,9 +11,10 @@
         </p>
         <div class="product-price-rating">
           <h3 class="product-price">
-            {{ product.price | currency : "INR" : "symbol"}}
+            {{ product.price | currency : "INR" : "symbol" }}
           </h3>
           <ngx-star-rating
+            [(ngModel)]="product.rating.rate"
             [disabled]="true"
             class="custom-star"
           ></ngx-star-rating>

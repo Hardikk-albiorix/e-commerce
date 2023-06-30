@@ -25,17 +25,17 @@ export class ProductService {
     );
   }
 
-  saveProducts(products:any){
-    localStorage.setItem('products',JSON.stringify(products));
+  saveProducts(products: Product[]) {
+    localStorage.setItem('products', JSON.stringify(products));
   }
 
-  getProductsData(){
+  getProductsData() {
     return JSON.parse(localStorage.getItem('products') as any) || [];
   }
 
   getCartLength() {
     const Products = this.getProductsData();
-    const length = Products.filter((item:any) => item.quantity > 0).length;
+    const length = Products.filter((item: Product) => item.quantity > 0).length;
     this.cartCount.next(length);
   }
 }
