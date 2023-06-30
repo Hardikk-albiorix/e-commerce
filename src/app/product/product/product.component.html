@@ -4,17 +4,17 @@
       class="example-card"
       *ngFor="let product of products; let i = index"
     >
-      <img class="product-image" mat-card-image src="{{ product.img }}" />
+      <img class="product-image" mat-card-image src="{{ product.image }}" />
       <mat-card-content>
         <p class="product-description" matTooltip="{{ product.description }}">
           {{ product.description }}
         </p>
         <div class="product-price-rating">
           <h3 class="product-price">
-            {{ product.price | currency : "INR" : "symbol" : "3.0" }}
+            {{ product.price | currency : "INR" : "symbol" }}
           </h3>
           <ngx-star-rating
-            [(ngModel)]="product.selectedRating"
+            [(ngModel)]="product.rating.rate"
             [disabled]="true"
             class="custom-star"
           ></ngx-star-rating>
