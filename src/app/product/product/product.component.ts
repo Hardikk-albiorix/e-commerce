@@ -8,24 +8,28 @@ import { Product } from '../interfaces/product';
   styleUrls: ['./product.component.scss'],
 })
 export class ProductComponent implements OnInit {
-  products!: Product[];
+  products: any = [];
 
   constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
-    this.products = this.productService.getProducts();
+    this.products = this.productService.getProductsData();
     if (!this.products?.length) {
-      this.productService.saveProducts(this.productService.products);
-      this.products = this.productService.getProducts();
+      this.getProducts();
     }
     this.productService.getCartLength();
+  }
+
+  getProducts() {
+    this.productService.getProducts().subscribe((data: any[]) => {
+      this.products = data;
+    });
+    this.productService.saveProducts(this.products);
   }
 
   addToCart(product: Product, isAdd: boolean) {
     product.quantity += isAdd ? 1 : -1;
     this.productService.saveProducts(this.products);
-    if (product.quantity <= 1) {
-      this.productService.getCartLength();
-    }
+    this.productService.getCartLength();
   }
 }
