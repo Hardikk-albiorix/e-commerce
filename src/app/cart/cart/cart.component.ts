@@ -31,7 +31,7 @@ export class CartComponent implements OnInit {
     });
     this.productService.saveProducts(Products);
     this.productCart = Products.filter((item: Product) => item.quantity > 0);
-    if (product.quantity == 0) {
+    if (!product.quantity) {
       this.productService.getCartLength();
     }
   }
